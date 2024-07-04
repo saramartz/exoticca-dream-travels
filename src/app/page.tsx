@@ -1,9 +1,9 @@
-import styles from './page.module.scss'
+import styles from './home.module.scss'
 
 const Home = () => {
     return (
         <div>
-            <p className={styles.home}>Home Page</p>
+            <h1 className={styles.home}>Home Page</h1>
         </div>
     )
 }
