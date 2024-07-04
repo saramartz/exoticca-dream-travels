@@ -1,0 +1,53 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+a,
+a:link {
+    color: inherit;
+    text-decoration: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%; 
+}
+
+button {
+    font-family: inherit;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+

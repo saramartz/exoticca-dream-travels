@@ -1,0 +1,22 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/typography' as *;
+
+html {
+    font-size: $font-base; 
+}
+
+body {
+    background-color: $color-secondary;
+    color: $color-primary;
+    font-weight: $font-weight-regular;
+}
+
+h1 {
+    font-size: $font-h1;
+}
+h2 {
+    font-size: $font-h2;
+}
+h3 {
+    font-size: $font-h3;
+}

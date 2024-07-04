@@ -1,0 +1,47 @@
+// Layout
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin flexCenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexColumnCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+// Media queries
+$large-desktop: 120em; // 1920px 
+$desktop: 100em; // 1600px 
+$landscape-tablet: 80em; // 1280px 
+$tablet: 64em; // 1024px 
+$landscape-phone: 48em; // 768px 
+$phone: 36em; // 576px 
+
+@mixin media($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mediaMin($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mediaBetween($from , $to) {
+  @media only screen and (min-width: $from) and (max-width: $to) {
+    @content;
+  }
+}
