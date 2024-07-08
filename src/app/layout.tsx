@@ -1,3 +1,4 @@
+import Header from 'components/layout/Header/Header'
 import type { Metadata } from 'next'
 import { Manrope } from 'next/font/google'
 import 'styles/globals.scss'
@@ -28,8 +29,9 @@ export default function RootLayout({
             </head>
             <html lang="en">
                 <body className={manrope.className}>
-                    <p>Header</p>
+                    <Header />
                     <main>{children}</main>
+                    <div id="modal-root"></div>
                 </body>
             </html>
         </>

@@ -6,7 +6,9 @@
           "domain/*": ["./src/domain/*"],
           "infrastructure/*": ["./src/infrastructure/*"],
           "components/*": ["./src/ui/components/*"],
-          "styles/*": ["./src/ui/styles/*"]
+          "hooks/*": ["./src/ui/hooks/*"],
+          "styles/*": ["./src/ui/styles/*"],
+          "assets/*": ["./public/*"]
       },
       "lib": ["dom", "dom.iterable", "esnext"],
       "allowJs": true,

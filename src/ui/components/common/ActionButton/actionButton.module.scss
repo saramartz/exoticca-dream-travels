@@ -1,0 +1,13 @@
+.text {
+    font-size: $font-body-sm;
+    text-decoration: underline;
+}
+
+// Variant
+.action {
+    color: $color-primary;
+}
+
+.danger {
+    color: $color-error;
+}

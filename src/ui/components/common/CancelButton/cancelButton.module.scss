@@ -1,0 +1,11 @@
+.cancelButton {
+    @include flexCenter;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50px;
+    background-color: $color-primary;
+}
+
+.crossIcon {
+    width: 2rem;
+}

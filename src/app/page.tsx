@@ -1,11 +1,21 @@
-import styles from './home.module.scss'
+import SearchInput from 'components/common/FormControls/SearchInput/SearchInput'
+import { trips } from 'components/data'
+import NavigationTabs from 'components/features/NavigationTabs/NavigationTabs'
+import styles from './homePage.module.scss'
 
-const Home = () => {
+const HomePage = () => {
     return (
         <div>
-            <h1 className={styles.home}>Home Page</h1>
+            <header className={styles.hero}>
+                <h1 className={styles.title}>The places you dream of</h1>
+                <h3 className={styles.subtitle}>Let&apos;s live new adventures</h3>
+                <SearchInput />
+            </header>
+            <section>
+                <NavigationTabs trips={trips} />
+            </section>
         </div>
     )
 }
 
-export default Home
+export default HomePage

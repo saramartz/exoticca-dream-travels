@@ -1,0 +1,24 @@
+.checkMark {
+    display: flex;
+    align-items: center;
+    font-size: $font-body-lg;
+    color: $gray-dark;
+    margin: 1.6rem 0 2.4rem;
+
+    svg {
+        width: 2.4rem;
+        margin-right: 0.6rem;
+    }
+}
+
+.description {
+    font-size: $font-body-lg;
+    line-height: 1.6;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid $gray-light;
+    margin-bottom: 2.4rem;
+}
+
+.itinerary {
+    margin-bottom: 2.4rem;
+}

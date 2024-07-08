@@ -1,0 +1,39 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 92rem;
+    border-radius: 16px;
+    border: 1px solid $gray-light;
+}
+
+.imageContainer {
+    position: relative;
+
+    > img {
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding: 2.4rem;
+}
+
+.description {
+    font-size: $font-body-lg;
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit {
+    margin-right: 1.6rem;
+}

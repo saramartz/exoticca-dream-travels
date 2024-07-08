@@ -1,0 +1,54 @@
+.textField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.label {
+    font-size: $font-body-sm;
+}
+
+.input,
+.textarea,
+.select {
+    font-size: $font-body-lg;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid $gray-medium;
+    border-radius: 30px;
+}
+
+// Textarea
+.textarea {
+    resize: none;
+    border-radius: 16px;
+}
+
+// Select
+.selectContainer {
+    position: relative;
+
+    .select {
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .selectIcon {
+        position: absolute;
+        right: 1.6rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.4rem;
+        pointer-events: none;
+    }
+}
+
+// Error
+.inputError {
+    border-color: $color-error;
+}
+
+.errorHelperText {
+    color: $color-error;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,39 @@
+.itineraryInputContainer {
+    width: 100%;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $font-body-sm;
+    margin-bottom: 0.8rem;
+}
+
+.plusCircle {
+    width: 2.1rem;
+}
+
+.itineraryInputGroup {
+ display: flex;
+ flex-direction: column;
+ gap: 0.8rem;
+}
+
+.itineraryInput {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    padding: 1.6rem;
+    border-radius: 16px;
+    background-color: $gray-extralight;
+    gap: 0.8rem;
+}
+
+.itineraryDescription {
+    grid-column: 2;
+}
+
+.errorHelperText {
+    color: $color-error;
+    font-size: 1.2rem;
+}

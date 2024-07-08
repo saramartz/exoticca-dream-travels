@@ -1,0 +1,35 @@
+.tabs {
+    margin: 0 auto;
+    width: fit-content;
+    border: 1px solid $gray-light;
+    border-radius: 24px;
+    margin-bottom: 2.4rem;
+}
+
+.tab {
+    color: $color-primary;
+    font-size: $font-body-lg;
+    padding: 1.2rem 2rem;
+    border: none;
+    cursor: pointer;
+
+    &:first-of-type {
+        border-right: 1px solid $gray-light;
+        border-top-left-radius: 24px;
+        border-bottom-left-radius: 24px;
+    }
+
+    &:last-of-type {
+        border-left: 1px solid $gray-light;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &.active {
+        background-color: $gray-extralight;
+    }
+}

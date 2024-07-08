@@ -1,0 +1,32 @@
+.button {
+    border-radius: 50px;
+
+    &:disabled {
+        color: $color-primary;
+        background-color: $gray-light;
+        cursor: not-allowed;
+    }
+}
+
+// Variant
+.primary {
+    color: $color-secondary;
+    background-color: $color-primary;
+}
+
+.secondary {
+    color: $color-primary;
+    background-color: $color-secondary;
+}
+
+// Size
+.small {
+    font-size: $font-body-sm;
+    padding: 0.9rem 1.4rem;
+}
+
+.large {
+    font-size: $font-body-lg;
+    padding: 1.4rem 2rem;
+    min-width: 16rem;
+}

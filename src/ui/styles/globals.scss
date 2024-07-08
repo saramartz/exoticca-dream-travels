@@ -1,21 +1,24 @@
 @import 'base'; // global styles
 
 :root {
-    // Base colors 
+    // Base colors
     --color-primary: #121212;
     --color-secondary: #ffffff;
-    // Gray scale colors 
+    // Gray scale colors
     --gray-extralight: #f3f3f3;
-    --gray-light: #f3f3f3;
-    --gray-medium: #898989;
+    --gray-light: #d8d8d8;
+    --gray-medium: #b0b0b0;
+    --gray-dark: #898989;
     // Semantic colors
     --color-success: #67d071;
     --color-error: #c93957;
+    // Background colors
+    --color-backdrop: #12121280;
 
     // Fonts
     --font-h1: 3.2rem;
     --font-h2: 2.4rem;
     --font-h3: 2rem;
-    --font-body-md: 1.4rem;
+    --font-body-sm: 1.4rem;
     --font-body-lg: 1.6rem;
 }

@@ -9,14 +9,32 @@ body {
     background-color: $color-secondary;
     color: $color-primary;
     font-weight: $font-weight-regular;
+    padding: 4.8rem;
 }
 
 h1 {
     font-size: $font-h1;
+    font-weight: $font-weight-regular;
 }
 h2 {
     font-size: $font-h2;
+    font-weight: $font-weight-regular;
 }
 h3 {
     font-size: $font-h3;
+    font-weight: $font-weight-regular;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $color-primary $color-secondary;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $color-primary;
+    border-radius: 6px;
 }

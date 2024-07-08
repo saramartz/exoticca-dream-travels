@@ -1,0 +1,44 @@
+.itineraryList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.itineraryItem {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2.4rem;
+
+    // Circle
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.4rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+    }
+
+    // Line
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        top: 1rem;
+        bottom: -2.8rem;
+        width: 2px;
+        background-color: $color-primary;
+    }
+}
+
+.itemTitle {
+    font-size: $font-body-lg;
+    margin-bottom: 0.8rem;
+}
+
+.itemDescription {
+    font-size: $font-body-lg;
+    line-height: 1.6;
+    color: $gray-dark;
+}

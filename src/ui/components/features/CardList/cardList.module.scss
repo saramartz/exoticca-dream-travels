@@ -1,0 +1,10 @@
+.cardsList {
+    @include flexColumnCenter;
+    gap: 2.4rem;
+}
+
+.pagination {
+    @include flexCenter;
+    gap: 2.4rem;
+    font-size: $font-body-sm;
+}
