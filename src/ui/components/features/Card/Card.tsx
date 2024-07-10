@@ -15,12 +15,15 @@ const Card = ({ trip }: CardProps) => {
     const [showDetails, setShowDetails] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
 
-    const { removeTrip } = useTripsContext()
+    const { removeTrip, setSelectedTrip } = useTripsContext()
 
     const handleOpenDetails = () => setShowDetails(true)
     const handleCloseDetails = () => setShowDetails(false)
 
-    const handleOpenEdit = () => setShowEdit(true)
+    const handleOpenEdit = (trip: Trip) => {
+        setSelectedTrip(trip)
+        setShowEdit(true)
+    }
     const handleCloseEdit = () => setShowEdit(false)
 
     return (
@@ -38,7 +41,7 @@ const Card = ({ trip }: CardProps) => {
                             See trip details
                         </ActionButton>
                         <div>
-                            <ActionButton className={styles.edit} variant="action" onClick={handleOpenEdit}>
+                            <ActionButton className={styles.edit} variant="action" onClick={() => handleOpenEdit(trip)}>
                                 Edit
                             </ActionButton>
                             <ActionButton variant="danger" onClick={() => removeTrip(trip.id)}>

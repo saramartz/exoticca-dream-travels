@@ -5,6 +5,7 @@ import Card from './Card'
 
 jest.mock('contexts/TripsContext', () => ({
     useTripsContext: jest.fn(),
+    setSelectedTrip: jest.fn()
 }))
 
 jest.mock('next/image', () => ({
@@ -44,6 +45,7 @@ describe('Card', () => {
     beforeEach(() => {
         mockUseTripsContext.mockReturnValue({
             removeTrip: jest.fn(),
+            setSelectedTrip: jest.fn(),
         } as unknown as TripsContextType)
     })
 
@@ -71,7 +73,7 @@ describe('Card', () => {
     it('calls removeTrip when "Delete" is clicked', () => {
         const mockRemoveTrip = jest.fn()
         mockUseTripsContext.mockReturnValue({
-            edit: { handleOpenEdit: jest.fn() },
+            setSelectedTrip: jest.fn(),
             removeTrip: mockRemoveTrip,
         } as unknown as TripsContextType)
 
