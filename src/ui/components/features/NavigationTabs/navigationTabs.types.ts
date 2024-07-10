@@ -1,12 +1,12 @@
-import { Trip } from 'components/types'
-
-export interface NavigationTabsProps {
-    trips: Trip[]
-}
+import { Trip } from 'domain/entities/Trip'
 
 export type TabState = 'all' | 'todo' | 'done'
 
 export interface TabInfo {
     state: TabState
     label: string
+}
+
+export interface NavigationTabsProps {
+    trips: Trip[]
 }

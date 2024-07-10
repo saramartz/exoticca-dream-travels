@@ -3,9 +3,15 @@
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 36rem;
 }
 
 .searchButton {
     position: absolute;
     right: 0.6rem;
+}
+
+.searchHelperText {
+    color: $color-error;
+    font-size: $font-body-lg;
 }

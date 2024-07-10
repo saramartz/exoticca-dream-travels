@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { ValidationSchema } from './types'
 
-const useForm = (
-    initialValues: { [key: string]: any },
+interface FormValues {
+    [key: string]: any
+}
+
+const useForm = <T extends FormValues>(
+    initialValues: T,
     validationSchema: ValidationSchema,
-    onSubmit: (values: { [key: string]: any }) => void
+    onSubmit: (values: T) => void
 ) => {
     const [values, setValues] = useState(initialValues)
     const [errors, setErrors] = useState<{ [key: string]: string | undefined }>({})
@@ -33,8 +37,9 @@ const useForm = (
         validateField(name, value)
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        
         const hasErrors = Object.keys(validationSchema).some((key) => {
             const fieldRules = validationSchema[key]
             if (!fieldRules) return false

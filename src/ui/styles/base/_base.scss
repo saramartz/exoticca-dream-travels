@@ -1,8 +1,14 @@
-@use 'abstracts/colors' as *;
-@use 'abstracts/typography' as *;
+@use 'abstracts' as *;
 
 html {
-    font-size: $font-base; 
+    font-size: $font-base;
+
+    @include mediaMin($large-desktop) {
+        font-size: 65%;
+    }
+    @include media($landscape-tablet) {
+        font-size: 56%;
+    }
 }
 
 body {
@@ -10,6 +16,10 @@ body {
     color: $color-primary;
     font-weight: $font-weight-regular;
     padding: 4.8rem;
+
+    @include media($landscape-phone) {
+         padding: 2rem;
+    }
 }
 
 h1 {

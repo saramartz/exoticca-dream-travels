@@ -1,9 +1,15 @@
 .card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     max-width: 92rem;
     border-radius: 16px;
     border: 1px solid $gray-light;
+    width: 100%;
+
+    @include media($phone) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
 }
 
 .imageContainer {
@@ -12,6 +18,11 @@
     > img {
         border-top-left-radius: 16px;
         border-bottom-left-radius: 16px;
+
+        @include media($phone) {
+            border-top-right-radius: 16px;
+            border-bottom-left-radius: 0;
+        }
     }
 }
 

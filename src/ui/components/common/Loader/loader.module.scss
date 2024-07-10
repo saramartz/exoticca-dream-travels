@@ -1,0 +1,35 @@
+.loaderContainer {
+    @include absoluteCenter;
+    z-index: 30;
+}
+
+.loader {
+    border: 6px solid $gray-light;
+    border-top: 6px solid $color-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.small {
+    width: 2rem;
+    height: 2rem;
+}
+
+.medium {
+    width: 4rem;
+    height: 4rem;
+}
+
+.large {
+    width: 6rem;
+    height: 6rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,13 +1,13 @@
 import Button from 'components/common/Button/Button'
 import TextField from 'components/common/FormControls/TextField/TextField'
-import { ItineraryItem } from 'components/types'
+import { ItineraryItem } from 'domain/entities/Trip'
 import useForm from 'hooks/useForm'
 import styles from './form.module.scss'
 import { FormProps } from './form.types'
 import ItineraryInput from './ItineraryInput/ItineraryInput'
 import { validationSchema } from './validationSchema'
 
-const Form = ({ initialValues, onSubmit }: FormProps) => {
+const Form = <T extends { [key: string]: any }>({ initialValues, onSubmit }: FormProps<T>) => {
     const { values, errors, handleChange, handleSubmit } = useForm(initialValues, validationSchema, onSubmit)
 
     const handleItineraryChange = (index: number, field: keyof ItineraryItem, value: string | number) => {
@@ -28,7 +28,7 @@ const Form = ({ initialValues, onSubmit }: FormProps) => {
     }
 
     return (
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <TextField
                 id="title"
                 label="Name"
@@ -75,7 +75,7 @@ const Form = ({ initialValues, onSubmit }: FormProps) => {
                 errorHelperText={errors.itinerary}
             />
 
-            <Button variant="primary" onClick={handleSubmit}>
+            <Button variant="primary" type="submit">
                 Save
             </Button>
         </form>

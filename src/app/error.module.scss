@@ -1,0 +1,6 @@
+.container {
+    @include absoluteCenter;
+    @include flexColumnCenter;
+    gap: 4rem;
+    z-index: 20;
+}

@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Travel App
+
+## Overview
+
+Dream Travels is a Next.js 14 application that allows users to manage their travel plans efficiently. It's built with React hooks, Context API, TypeScript, CSS modules, SASS and React Testing library. Also, it follows the hexagonal architecture.
+
+## Features
+
+- Create, read, update, and delete trips
+- Library of components designed from scratch
+- Form validations
+- Error handling with custom error messages
+- Loading states for better user experience
+- Toast notifications for user feedback
+- Responsive design and Cross-browser compatibility
+
+## Tech Stack
+
+- Next.js 14
+- React (with Hooks)
+- TypeScript
+- SASS and CSS Modules
+- Context API for state management
+- React Testing library
+- Hexagonal Architecture
 
 ## Getting Started
 
-First, run the development server:
+1. Create a `.env.local` file in the root directory and add your environment variables:
+```bash
+NEXT_PUBLIC_API_URL=your_api_url_here
+```
+
+2. To run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To run the tests:
 
-## Learn More
+```bash
+npm test
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Live Site 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [https://exoticca-dream-travels.vercel.app](https://exoticca-dream-travels.vercel.app) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

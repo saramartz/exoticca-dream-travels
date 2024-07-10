@@ -1,4 +1,4 @@
-export interface FormProps {
-    initialValues: { [key: string]: any }
-    onSubmit: (values: { [key: string]: any }) => void
+export interface FormProps<T> {
+    initialValues: T
+    onSubmit: (values: T) => void
 }

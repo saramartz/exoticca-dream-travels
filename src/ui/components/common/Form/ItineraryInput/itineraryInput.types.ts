@@ -1,4 +1,4 @@
-import { ItineraryItem } from 'components/types'
+import { ItineraryItem } from 'domain/entities/Trip'
 
 export interface ItineraryInputProps {
     itinerary: ItineraryItem[]

@@ -2,25 +2,22 @@
 import logo from 'assets/images/logo.png'
 import Button from 'components/common/Button/Button'
 import CreateForm from 'components/features/CreateForm/CreateForm'
+import { useTripsContext } from 'contexts/TripsContext'
 import Image from 'next/image'
-import { useState } from 'react'
 import styles from './header.module.scss'
 
 const Header = () => {
-    const [showCreate, setShowCreate] = useState(false)
-
-    const handleCreate = () => setShowCreate(true)
-    const handleCloseCreate = () => setShowCreate(false)
+    const { create } = useTripsContext()
 
     return (
         <>
             <header className={styles.header}>
                 <Image src={logo} alt="Company Logo" className={styles.logo} width={48} height={48} priority />
-                <Button onClick={handleCreate} variant="secondary">
+                <Button onClick={create.handleOpenCreate} variant="secondary">
                     Create new trip
                 </Button>
             </header>
-            <CreateForm isOpen={showCreate} onClose={handleCloseCreate} />
+            <CreateForm isOpen={create.showCreate} onClose={create.handleCloseCreate} />
         </>
     )
 }
