@@ -8,7 +8,8 @@ interface FormValues {
 const useForm = <T extends FormValues>(
     initialValues: T,
     validationSchema: ValidationSchema,
-    onSubmit: (values: T) => void
+    onSubmit: (values: T) => void,
+    onClose: () => void
 ) => {
     const [values, setValues] = useState(initialValues)
     const [errors, setErrors] = useState<{ [key: string]: string | undefined }>({})
@@ -48,6 +49,7 @@ const useForm = <T extends FormValues>(
 
         if (!hasErrors) {
             onSubmit(values)
+            onClose()
         }
     }
 

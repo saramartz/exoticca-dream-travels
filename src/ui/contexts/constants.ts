@@ -14,9 +14,4 @@ export const INITIAL_STATE = {
         handleOpenCreate: () => {},
         handleCloseCreate: () => {},
     },
-    edit: {
-        showEdit: false,
-        handleOpenEdit: () => {},
-        handleCloseEdit: () => {},
-    },
 }

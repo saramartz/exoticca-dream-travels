@@ -10,6 +10,7 @@ export const useSearch = <T extends SearchItem>(items: T[], searchableFields: (k
     const [isSearchPerformed, setIsSearchPerformed] = useState(false)
 
     const hasResults = searchResults.length > 0
+    
     const handleSearchTerm = (value: string) => setSearchTerm(value)
 
     const performSearch = () => {

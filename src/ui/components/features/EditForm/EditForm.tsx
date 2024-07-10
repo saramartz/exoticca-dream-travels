@@ -19,7 +19,7 @@ const EditForm = ({ trip, isOpen, onClose }: EditFormProps) => {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} title="Edit a trip">
-            <Form initialValues={trip} onSubmit={modifyTrip} />
+            <Form initialValues={trip} onSubmit={modifyTrip} onClose={onClose} />
         </Modal>
     )
 }

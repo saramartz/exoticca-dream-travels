@@ -17,10 +17,5 @@ export interface TripsContextType {
         handleOpenCreate: () => void
         handleCloseCreate: () => void
     }
-    edit: {
-        showEdit: boolean
-        handleOpenEdit: () => void
-        handleCloseEdit: () => void
-    }
 }
 

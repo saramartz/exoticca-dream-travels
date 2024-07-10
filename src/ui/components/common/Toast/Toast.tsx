@@ -1,15 +1,7 @@
 import classNames from 'classnames'
 import { useEffect } from 'react'
 import styles from './toast.module.scss'
-
-export type ToastType = 'success' | 'error' | 'info' | 'warning'
-
-interface ToastProps {
-    message: string
-    type: ToastType
-    onClose: () => void
-    duration?: number
-}
+import { ToastProps } from './toast.types'
 
 export const Toast = ({ message, type, onClose, duration = 3000 }: ToastProps) => {
     useEffect(() => {

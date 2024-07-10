@@ -27,6 +27,7 @@ const TextField = ({
             onChange={onChange}
             placeholder={placeholder}
             className={classNames(styles.input, { [styles.inputError]: hasError })}
+            data-testid="custom-input"
         />
     )
 
@@ -39,6 +40,7 @@ const TextField = ({
             placeholder={placeholder}
             rows={rows}
             className={classNames(styles.textarea, { [styles.inputError]: hasError })}
+            data-testid="custom-textarea"
         />
     )
 
@@ -50,6 +52,7 @@ const TextField = ({
                 value={value}
                 onChange={onChange}
                 className={classNames(styles.select, { [styles.inputError]: hasError })}
+                data-testid="custom-select"
             >
                 {options.map((option) => (
                     <option key={option.id} value={option.value} disabled={option.disabled}>

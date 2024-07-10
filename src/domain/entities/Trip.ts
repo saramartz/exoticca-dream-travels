@@ -1,4 +1,7 @@
-export type TripStatus = 'todo' | 'done'
+export enum TRIP_STATUS {
+    COMPLETED = 'done',
+    UPCOMING = 'todo',
+}
 
 export interface ItineraryItem {
     day: number
@@ -12,6 +15,6 @@ export interface Trip {
     introduction: string
     description: string
     photo_url: string
-    status: TripStatus
+    status: TRIP_STATUS
     itinerary: ItineraryItem[]
 }

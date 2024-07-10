@@ -11,10 +11,11 @@ import { getTrips } from 'application/getTrips'
 import { patchTrip } from 'application/patchTrip'
 import { updateTrip } from 'application/updateTrip'
 
-import { Trip } from 'domain/entities/Trip'
+import { Trip, TRIP_STATUS } from 'domain/entities/Trip'
 
 import Loader from 'components/common/Loader/Loader'
 import { Toast } from 'components/common/Toast/Toast'
+import { TOAST_TYPES } from 'components/common/Toast/toast.types'
 import { useLoading } from 'hooks/useLoading'
 import useToast from 'hooks/useToast'
 
@@ -30,20 +31,16 @@ export const TripsProvider = ({ children }: { children: ReactNode }) => {
     const [trips, setTrips] = useState<Trip[]>([])
     const [selectedTrip, setSelectedTrip] = useState<Trip | null>(null)
 
-    const [showEdit, setShowEdit] = useState(false)
     const [showCreate, setShowCreate] = useState(false)
 
     const tripRepository = createTripRepository()
 
     // Modal handlers
-    const handleOpenEdit = () => setShowEdit(true)
-    const handleCloseEdit = () => setShowEdit(false)
-
     const handleOpenCreate = () => setShowCreate(true)
     const handleCloseCreate = () => setShowCreate(false)
 
     // Error handler
-    const handleError = useCallback((error: CustomError) => showToast(error.message, 'error'), [showToast])
+    const handleError = useCallback((error: CustomError) => showToast(error.message, TOAST_TYPES.ERROR), [showToast])
 
     // Trip
     const fetchTrips = useCallback(async () => {
@@ -63,36 +60,33 @@ export const TripsProvider = ({ children }: { children: ReactNode }) => {
             startLoading()
             try {
                 await createTrip(tripRepository, newTrip)
-                showToast('Trip created successfully', 'success')
+                showToast('Trip created successfully', TOAST_TYPES.SUCCESS)
             } catch (error: any) {
                 handleError(error)
             } finally {
                 stopLoading()
-                handleCloseCreate()
             }
         },
-        [startLoading, stopLoading, handleCloseCreate]
+        [startLoading, stopLoading]
     )
 
     const modifyTrip = useCallback(
         async (updatedTrip: Trip) => {
             if (!selectedTrip) {
-                showToast('Failed to edit trip', 'error')
-                handleCloseEdit()
+                showToast('Failed to edit trip', TOAST_TYPES.ERROR)
                 return
             }
             startLoading()
             try {
                 await updateTrip(tripRepository, selectedTrip.id, updatedTrip)
-                showToast('Trip edited successfully', 'success')
+                showToast('Trip edited successfully', TOAST_TYPES.SUCCESS)
             } catch (error: any) {
                 handleError(error)
             } finally {
                 stopLoading()
-                handleCloseEdit()
             }
         },
-        [startLoading, stopLoading, handleCloseEdit]
+        [startLoading, stopLoading]
     )
 
     const modifyTripPartially = useCallback(
@@ -114,7 +108,7 @@ export const TripsProvider = ({ children }: { children: ReactNode }) => {
             startLoading()
             try {
                 await deleteTrip(tripRepository, id)
-                showToast('Trip deleted successfully', 'success')
+                showToast('Trip deleted successfully', TOAST_TYPES.SUCCESS)
             } catch (error: any) {
                 handleError(error)
             } finally {
@@ -126,14 +120,14 @@ export const TripsProvider = ({ children }: { children: ReactNode }) => {
 
     const markTripAsCompleted = useCallback(
         async (id: number) => {
-            await modifyTripPartially(id, { status: 'done' })
+            await modifyTripPartially(id, { status: TRIP_STATUS.COMPLETED })
         },
         [modifyTripPartially]
     )
 
     const moveTripToUpcoming = useCallback(
         async (id: number) => {
-            await modifyTripPartially(id, { status: 'todo' })
+            await modifyTripPartially(id, { status: TRIP_STATUS.UPCOMING })
         },
         [modifyTripPartially]
     )
@@ -157,11 +151,6 @@ export const TripsProvider = ({ children }: { children: ReactNode }) => {
             showCreate,
             handleOpenCreate,
             handleCloseCreate,
-        },
-        edit: {
-            showEdit,
-            handleOpenEdit,
-            handleCloseEdit,
         },
     }
 

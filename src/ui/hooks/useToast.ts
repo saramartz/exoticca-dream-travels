@@ -1,20 +1,20 @@
+import { TOAST_TYPES } from 'components/common/Toast/toast.types'
 import { useState } from 'react'
-import { ToastType } from '../components/common/Toast/Toast'
 
 interface ToastState {
     message: string
-    type: ToastType
+    type: TOAST_TYPES
     isVisible: boolean
 }
 
 const useToast = () => {
     const [toast, setToast] = useState<ToastState>({
         message: '',
-        type: 'info',
+        type: TOAST_TYPES.INFO,
         isVisible: false,
     })
 
-    const showToast = (message: string, type: ToastType) => setToast({ message, type, isVisible: true })
+    const showToast = (message: string, type: TOAST_TYPES) => setToast({ message, type, isVisible: true })
 
     const hideToast = () => setToast((prev) => ({ ...prev, isVisible: false }))
 

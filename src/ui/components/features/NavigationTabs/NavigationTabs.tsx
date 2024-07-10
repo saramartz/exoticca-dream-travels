@@ -4,11 +4,12 @@ import { useState } from 'react'
 import CardList from '../CardList/CardList'
 import styles from './navigationTabs.module.scss'
 import { NavigationTabsProps, TabInfo, TabState } from './navigationTabs.types'
+import { TRIP_STATUS } from 'domain/entities/Trip'
 
 const TABS: TabInfo[] = [
     { state: 'all', label: 'All' },
-    { state: 'todo', label: 'Upcoming' },
-    { state: 'done', label: 'Completed' },
+    { state: TRIP_STATUS.UPCOMING, label: 'Upcoming' },
+    { state: TRIP_STATUS.COMPLETED, label: 'Completed' },
 ]
 
 const NavigationTabs = ({ trips }: NavigationTabsProps) => {

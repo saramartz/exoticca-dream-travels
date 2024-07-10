@@ -7,7 +7,7 @@ interface LoaderProps {
 
 const Loader = ({ size = 'medium' }: LoaderProps) => (
     <div className={styles.loaderContainer}>
-        <div className={classNames(styles.loader, styles[size])} />
+        <div className={classNames(styles.loader, styles[size])} data-testid="loader" />
     </div>
 )
 

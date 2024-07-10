@@ -14,20 +14,24 @@ const createJestConfig = nextJest({
 const config: Config = {
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
-
     // Indicates which provider should be used to instrument code for coverage
     coverageProvider: 'v8',
-
     // The test environment used for testing
     testEnvironment: 'jsdom',
-
     // Add more setup options before each test is run
     setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {
-    //     '^components/(.*)$': '<rootDir>/src/ui/components/$1',
-    // },
+    moduleNameMapper: {
+        '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+        '^hooks/(.*)$': '<rootDir>/src/ui/hooks/$1',
+        '^contexts/(.*)$': '<rootDir>/src/ui/contexts/$1',
+        '^components/(.*)$': '<rootDir>/src/ui/components/$1',
+        '^infrastructure/(.*)$': '<rootDir>/src/infrastructure/$1',
+    },
+    // A map from regular expressions to paths to transformers
+    transform: {
+        '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    },
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -184,9 +188,6 @@ const config: Config = {
 
     // This option allows use of a custom test runner
     // testRunner: "jest-circus/runner",
-
-    // A map from regular expressions to paths to transformers
-    // transform: undefined,
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
     // transformIgnorePatterns: [

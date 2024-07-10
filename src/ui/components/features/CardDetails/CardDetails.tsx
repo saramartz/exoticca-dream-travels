@@ -3,7 +3,7 @@ import CheckMark from 'assets/icons/icon-check.svg'
 
 import Modal from 'components/common/Modal/Modal'
 import { useTripsContext } from 'contexts/TripsContext'
-import { Trip } from 'domain/entities/Trip'
+import { Trip, TRIP_STATUS } from 'domain/entities/Trip'
 import { useState } from 'react'
 import Itinerary from './Itinerary/Itinerary'
 import styles from './cardDetails.module.scss'
@@ -19,17 +19,17 @@ const CardDetails = ({ trip, isOpen, onClose }: CardDetailsProps) => {
 
     const { markTripAsCompleted, moveTripToUpcoming } = useTripsContext()
     const handleStatusChange = async () => {
-        if (trip.status === 'done') {
+        if (trip.status === TRIP_STATUS.COMPLETED) {
             await moveTripToUpcoming(trip.id)
-            setStatus('todo')
+            setStatus(TRIP_STATUS.UPCOMING)
         } else {
             await markTripAsCompleted(trip.id)
-            setStatus('done')
+            setStatus(TRIP_STATUS.COMPLETED)
         }
     }
 
-    const buttonText = status === 'done' ? 'Mark as upcoming' : 'Mark as completed'
-    const confirmedText = status === 'done' ? 'Complete' : 'Upcoming'
+    const buttonText = status === TRIP_STATUS.COMPLETED ? 'Mark as upcoming' : 'Mark as completed'
+    const confirmedText = status === TRIP_STATUS.COMPLETED ? 'Complete' : 'Upcoming'
     const isConfirmed = status !== trip.status
 
     return (

@@ -13,10 +13,15 @@ interface CardProps {
 
 const Card = ({ trip }: CardProps) => {
     const [showDetails, setShowDetails] = useState(false)
-    const { edit, removeTrip } = useTripsContext()
+    const [showEdit, setShowEdit] = useState(false)
+
+    const { removeTrip } = useTripsContext()
 
     const handleOpenDetails = () => setShowDetails(true)
     const handleCloseDetails = () => setShowDetails(false)
+
+    const handleOpenEdit = () => setShowEdit(true)
+    const handleCloseEdit = () => setShowEdit(false)
 
     return (
         <>
@@ -33,7 +38,7 @@ const Card = ({ trip }: CardProps) => {
                             See trip details
                         </ActionButton>
                         <div>
-                            <ActionButton className={styles.edit} variant="action" onClick={edit.handleOpenEdit}>
+                            <ActionButton className={styles.edit} variant="action" onClick={handleOpenEdit}>
                                 Edit
                             </ActionButton>
                             <ActionButton variant="danger" onClick={() => removeTrip(trip.id)}>
@@ -43,12 +48,8 @@ const Card = ({ trip }: CardProps) => {
                     </div>
                 </div>
             </div>
-            <CardDetails
-                trip={trip}
-                isOpen={showDetails}
-                onClose={handleCloseDetails}
-            />
-            <EditForm trip={trip} isOpen={edit.showEdit} onClose={edit.handleCloseEdit} />
+            <CardDetails trip={trip} isOpen={showDetails} onClose={handleCloseDetails} />
+            <EditForm trip={trip} isOpen={showEdit} onClose={handleCloseEdit} />
         </>
     )
 }

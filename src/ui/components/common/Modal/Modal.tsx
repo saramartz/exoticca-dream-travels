@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose, children, title, image, className }: ModalProp
     }
 
     const modalContent = (
-        <div className={styles.backdrop} onClick={handleClose}>
+        <div className={styles.backdrop} onClick={handleClose} data-testid="modal-backdrop">
             <div className={classNames(styles.modal, className)}>
                 <CancelButton className={styles.cancelButton} onClick={onClose} />
                 {image && (

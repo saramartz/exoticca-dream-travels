@@ -7,8 +7,8 @@ import { FormProps } from './form.types'
 import ItineraryInput from './ItineraryInput/ItineraryInput'
 import { validationSchema } from './validationSchema'
 
-const Form = <T extends { [key: string]: any }>({ initialValues, onSubmit }: FormProps<T>) => {
-    const { values, errors, handleChange, handleSubmit } = useForm(initialValues, validationSchema, onSubmit)
+const Form = <T extends { [key: string]: any }>({ initialValues, onSubmit, onClose }: FormProps<T>) => {
+    const { values, errors, handleChange, handleSubmit } = useForm(initialValues, validationSchema, onSubmit, onClose)
 
     const handleItineraryChange = (index: number, field: keyof ItineraryItem, value: string | number) => {
         const updatedItinerary: ItineraryItem[] = values.itinerary.map((item: ItineraryItem[], i: number) =>
@@ -28,7 +28,7 @@ const Form = <T extends { [key: string]: any }>({ initialValues, onSubmit }: For
     }
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form role="form" className={styles.form} onSubmit={handleSubmit}>
             <TextField
                 id="title"
                 label="Name"
